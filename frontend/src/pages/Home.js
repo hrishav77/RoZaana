@@ -1,6 +1,6 @@
 // import React from 'react'
-// import { Text} from '@chakra-ui/react'
 import React, { useState, useEffect } from "react";
+import GoalDetail from '../components/GoalDetail';
 
 export default function Home() {
   const [goals,setGoals]=useState(null)
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="goals">
       {goals && goals.map((goal)=>(
-        <p key={goal._id}>{goal.goaltitle}</p>
+        <GoalDetail goal={goal}/>
       ))}
       </div>
     

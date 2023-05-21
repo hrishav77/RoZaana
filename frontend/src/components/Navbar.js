@@ -6,9 +6,8 @@ import { Link } from 'react-router-dom'
 export default function Navbar() {
   return (
         <Flex background={'#DF98EB'} >
-            <Box p='2'>
-            <Link to="/"><Heading size='xl' className='name' p='5' color={'#60146D'}>DAILY GOALS</Heading></Link>
-            </Box>
+            
+            <Link to="/"><Heading size='xl'  p='5' ml="10%" color={'#60146D'}>DAILY GOALS</Heading></Link>
         
         </Flex>
   )
