@@ -1,19 +1,20 @@
 const express=require('express')
 const router=express.Router()
+const Goal=require("../models/Goal")
+const {getGoals,postGoal,getGoalId}=require("../controller/goalcontroller")
 
-router.get('/',(req,res)=>{
-res.json({mssg:"get all goals"})
-})
-router.get("/:id",(req,res)=>{
-    res.json({mssg:"get goal by id"})
-})
-router.post("/",(req,res)=>{
-    res.json({mssg:"post a goal"})
-})
+router.get('/',getGoals)
+
+router.get("/:id",getGoalId)
+
+router.post("/",postGoal )
+
 router.delete("/",(req,res)=>{
     res.json({mssg:"delete a goal"})
 })
+
 router.patch("/",(req,res)=>{
     res.json({mssg:"update a goal"})
 })
+
 module.exports=router 

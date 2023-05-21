@@ -4,7 +4,7 @@ const app=express()
 const mongoose=require('mongoose')
 const goalRoutes=require('./routes/goals')
 
-
+app.use(express.json())
 app.get("/",(req,res)=>{
 res.json({mssg:"welcome to the server"})
 })
