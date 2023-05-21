@@ -1,4 +1,5 @@
 const Goal=require("../models/Goal")
+const mongoose=require('mongoose')
 
 //get a goal
 const getGoals=async(req,res)=>{
@@ -20,21 +21,50 @@ const postGoal=async(req,res)=>{
 }
 
 //delete a goal
-
-
-//get a id goal
-const getGoalId=async(req,res)=>{
+const deleteGoal=async (req,res)=>{
     const {id}=req.params
-    const goal=Goal.findById(id)
-    if(!goal){
-        return res.status(200).json({error:"goal does not exist"})
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return  res.status(404).json({error:"no such goal"})
+     }
+     const goal=await Goal.findOneAndDelete({_id:id})
+     if(!goal){
+        return res.status(404).json({error:"goal does not exist"})
     }
     res.status(200).json(goal)
 }
 
+//get a id goal
+const getGoalId=async(req,res)=>{
+    const {id}=req.params
+ 
+    if(!mongoose.Types.ObjectId.isValid(id)){
+       return  res.status(404).json({error:"no such goal"})
+    }
+    const goal=await Goal.findById(id)
+    if(!goal){
+        return res.status(404).json({error:"goal does not exist"})
+    }
+    res.status(200).json(goal)
+    
+}
+
 //update a goal
+const updateGoal=async (req,res)=>{
+    const {id}=req.params
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return  res.status(404).json({error:"no such goal"})
+     }
+     const goal=await Goal.findOneAndUpdate({_id:id},{
+        ...req.body
+     })
+     if(!goal){
+        return res.status(404).json({error:"goal does not exist"})
+    }
+    res.status(200).json(goal)
+}
+
 
 
 module.exports={getGoals,
-    postGoal,getGoalId
+    postGoal,getGoalId,deleteGoal,updateGoal
 }
