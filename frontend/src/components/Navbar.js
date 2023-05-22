@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
         <Flex background={'#DF98EB'} >
             
-            <Link to="/"><Heading size='xl'  p='5' ml="10%" color={'#60146D'}>DAILY GOALS</Heading></Link>
+            <Link to="/"><Heading size='xl'  p='5' ml="35%" color={'#60146D'} fontSize="4xl">DAILY GOALS</Heading></Link>
         
         </Flex>
   )

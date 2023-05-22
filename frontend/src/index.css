@@ -1,3 +1,48 @@
 body{
   background: antiquewhite
 }
+.form-item{
+  padding: 5px;
+  
+}
+.form{
+  width: 80%;
+  margin: 20px;
+  border: 2px rgb(168, 214, 255) solid;
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 5px;
+ 
+}
+
+.form-input{
+  background-color: rgba(176, 213, 239, 0.573);
+  padding: 10px;
+  border-radius: 7px;
+  margin: 5px;
+}
+.form-input:hover{
+  background-color: rgba(201, 225, 241, 0.511);
+}
+label{
+  font-size: large;
+}
+ /* .goals{
+  display: flex;
+  flex-direction: row;
+
+} */
+.goal-detail{
+  display: flex;
+  flex-direction: row;
+} 
+.goal-box{
+  flex-grow: 10;
+}
+.form-box{
+  flex-grow: 1;
+}
+h1{
+  font-size: large;
+ font-weight: bold;
+}
