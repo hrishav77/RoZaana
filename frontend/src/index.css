@@ -47,3 +47,6 @@ h1{
   font-size: large;
  font-weight: bold;
 }
+.goaltext:hover{
+  text-decoration: line-through;
+}

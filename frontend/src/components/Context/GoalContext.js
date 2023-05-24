@@ -14,6 +14,10 @@ switch(action.type){
         return{
             goals:[action.payload,...state.goals]
         }
+    case 'DELETE_GOAL':
+        return{
+            goals:state.goals.filter((g)=>g._id!==action.payload._id)
+        }
     default:
         return{state} 
 }
