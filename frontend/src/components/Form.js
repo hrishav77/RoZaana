@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState,useEffect } from 'react'
 import { Button,Center} from '@chakra-ui/react'
-
+import { useGoalcontext } from '../hooks/useGoalcontext';
 
 
 export default function Form() {
+   const {dispatch}=useGoalcontext()
     const [goaltitle,setGoal]=useState("");
     const [duration,setDuration]=useState("");
     const [time,setTime]=useState("");
@@ -27,6 +28,7 @@ export default function Form() {
             setDuration("")
             setGoal("")
             setTime("")
+            dispatch({type:"CREATE_GOAL",payload:json})
         }
     }
   return (

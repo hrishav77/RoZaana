@@ -1,20 +1,26 @@
 // import React from 'react'
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useGoalcontext } from "../hooks/useGoalcontext";
+
 import GoalDetail from '../components/GoalDetail';
 import Form from "../components/Form";
-
 export default function Home() {
-  const [goals,setGoals]=useState(null)
+  // const [goals,setGoals]=useState(null)
+
+  const {goals,dispatch}=useGoalcontext()
+  
   useEffect(()=>{
     const fetchGoals=async()=>{
     const data=await fetch('/api/goals')
     const goaljson=await data.json()
     if(data.ok){
-      setGoals(goaljson)
+      // setGoals(goaljson)
+      dispatch({type:"SET_GOAL",payload:goaljson})
     }
    }
    fetchGoals()
   },[])
+  
   return (
     <div className="goals">
       <div className="goal-detail">
