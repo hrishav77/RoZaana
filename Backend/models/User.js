@@ -1,5 +1,6 @@
 const mongoose=require('mongoose')
 const bcrypt=require("bcrypt")
+const validator=require("validator")
 const userSchema=new mongoose.Schema({
     email:{
         type:String,
@@ -15,6 +16,17 @@ const userSchema=new mongoose.Schema({
 
 //static is used to create our own method
 userSchema.statics.signup=async function(email,password){ //this cant be a arrow function
+
+ if(!email||!password){
+    throw Error("all fields must be filled")
+ }   
+if(!validator.isEmail(email)){
+    throw Error("email is not valid")
+}
+if(!validator.isStrongPassword(password)){
+    throw Error("password not strong enough")
+}
+
 const exist= await this.findOne({email})//here this means the model
 if(exist){
     throw Error("email already in use")
