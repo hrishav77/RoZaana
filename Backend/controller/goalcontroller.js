@@ -3,7 +3,8 @@ const mongoose=require('mongoose')
 
 //get a goal
 const getGoals=async(req,res)=>{
-    const goals=await Goal.find({}).sort({createdAt:-1})
+    const user_id=req.user._id
+    const goals=await Goal.find({user_id}).sort({createdAt:-1})
     res.status(200).json(goals)
 }
 
@@ -12,7 +13,8 @@ const postGoal=async(req,res)=>{
     const {goaltitle,duration,time}=req.body
     //add the goal to database
     try{
-    const goal=await Goal.create({goaltitle,duration,time}) 
+    const user_id=req.user._id
+    const goal=await Goal.create({goaltitle,duration,time,user_id}) 
     res.status(200).json(goal)
     }catch(error){
         res.status(400).json({error:error.message})

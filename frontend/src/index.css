@@ -1,5 +1,9 @@
 body{
   background: #E7F6FC;
+  background-image: url(https://c0.wallpaperflare.com/preview/763/245/149/background-coffee-compose-composition.jpg);
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .form-item{
   padding: 5px;
@@ -8,15 +12,18 @@ body{
 .form{
   width: 80%;
   margin: 20px;
-  border: 2px #A5CFE3 solid;
-  background-color: #D7EDFA;
+  /* border: 2px #A5CFE3 solid; */
+  border: 2px rgb(80, 79, 79) solid;
+  /* background-color: #D7EDFA; */
+  background-color: rgba(139, 139, 139, 0.728);
   border-radius: 10px;
   padding: 5px;
+ 
  
 }
 
 .form-input{
-  background-color: rgba(176, 213, 239, 0.573);
+  background-color: rgba(250, 250, 250, 0.373);
   padding: 10px;
   border-radius: 7px;
   margin: 5px;
@@ -47,3 +54,4 @@ h1{
   font-size: large;
  font-weight: bold;
 }
+

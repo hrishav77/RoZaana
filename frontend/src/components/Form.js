@@ -37,7 +37,7 @@ export default function Form() {
         }
     }
   return (
-    <form className='form' onSubmit={handleSubmit}>
+    <form className='form' onSubmit={handleSubmit} >
         <h1>ADD A GOAL</h1>
         <div className='form-item'>
         <label htmlFor="goaltitle">Goal </label><br/>
@@ -51,7 +51,7 @@ export default function Form() {
         <label htmlFor="time">Enter when will you do</label><br />
         <input type="text" name="time" id="time" onChange={(e)=>{setTime(e.target.value)}} value={time} className='form-input'/>
         </div>
-      <Button colorScheme='blue' type='submit' m="4">Submit</Button>
+      <Button colorScheme="teal" type='submit' m="4">Submit</Button>
       {error && <div className="error">{error}</div>}
     </form>
   )

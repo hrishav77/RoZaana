@@ -1,13 +1,20 @@
 const mongoose=require('mongoose')
 const goalSchema=new mongoose.Schema({
     goaltitle:{
-        type:String
+        type:String,
+        required:true
     },
     duration:{
-        type:Number
+        type:Number,
+        required:true
     },
     time:{
-        type:String
+        type:String,
+        
+    },
+    user_id:{
+        type:String,
+        required:true
     }
 
 }, {timestamps:true})
