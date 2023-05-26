@@ -41,15 +41,16 @@ export default function Form() {
         <h1>ADD A GOAL</h1>
         <div className='form-item'>
         <label htmlFor="goaltitle">Goal </label><br/>
-        <input type="text" name="goaltitle" id="goaltitle" onChange={(e)=>{setGoal(e.target.value)}} value={goaltitle} className='form-input'/>
+        <input type="text" name="goaltitle" id="goaltitle" placeholder='Clean my table' onChange={(e)=>{setGoal(e.target.value)}} value={goaltitle} className='form-input'/>
         </div>
         <div className='form-item'>
-        <label htmlFor="duration">Enter duration(in hours)</label><br />
-        <input type="number" name="duration" id="duration" onChange={(e)=>{setDuration(e.target.value)}} value={duration} className='form-input'/>
+        <label htmlFor="duration" >Enter duration(in hours)</label><br />
+        <input type="number" name="duration" id="duration" placeholder='2' onChange={(e)=>{setDuration(e.target.value)}} value={duration} className='form-input'/>
         </div>
         <div className='form-item'>
-        <label htmlFor="time">Enter when will you do</label><br />
-        <input type="text" name="time" id="time" onChange={(e)=>{setTime(e.target.value)}} value={time} className='form-input'/>
+        <label htmlFor="time">Enter Start time</label><br />
+        <input type="text" name="time" id="time" onChange={(e)=>{setTime(e.target.value)}} value={time}
+        placeholder='6:00PM' className='form-input'/>
         </div>
       <Button colorScheme="teal" type='submit' m="4">Submit</Button>
       {error && <div className="error">{error}</div>}

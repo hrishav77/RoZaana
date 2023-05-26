@@ -29,6 +29,10 @@ body{
   margin: 5px;
   width: 90%;
 }
+
+.form-input::placeholder{
+  color: rgba(126, 126, 126, 0.674);
+}
 .form-input:hover{
   background-color: rgba(201, 225, 241, 0.511);
 }
@@ -53,5 +57,35 @@ label{
 h1{
   font-size: large;
  font-weight: bold;
+}
+.content {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.slashed {
+  text-decoration: line-through;
+  color: green;
+}
+.not{
+  margin-left: 5px;
+}
+
+.star-clip {
+  width: 20px;
+  height:30px;
+  background-color: yellow;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
 }
 
