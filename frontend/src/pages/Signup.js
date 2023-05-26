@@ -16,8 +16,7 @@ const SignupForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
  
-    console.log('Email:', email);
-    console.log('Password:', password);
+
     // Reset the form
     setEmail('');
     setPassword('');

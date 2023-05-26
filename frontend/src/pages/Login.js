@@ -16,8 +16,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform your signup logic here using the email and password state values
-    console.log('Email:', email);
-    console.log('Password:', password);
+
     // Reset the form
     setEmail('');
     setPassword('');
