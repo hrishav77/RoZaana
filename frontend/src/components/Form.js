@@ -2,7 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { Button,Center} from '@chakra-ui/react'
 import { useGoalcontext } from '../hooks/useGoalcontext';
-
+import { useAuthContext } from '../hooks/useAuthContext';
 
 export default function Form() {
    const {dispatch}=useGoalcontext()
@@ -10,15 +10,20 @@ export default function Form() {
     const [duration,setDuration]=useState("");
     const [time,setTime]=useState("");
     const [error,setError]=useState(null)
-
+  const {user}=useAuthContext()
     const handleSubmit=async(e)=>{
+      if(!user){
+        setError("you must be logged in")
+        return
+      }
         e.preventDefault();
         const goaldata={goaltitle,duration,time};
         const response=await fetch("/api/goals",{
             method:"post",
             body:JSON.stringify(goaldata),
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                'Authorization':`Bearer ${user.token}`
             }
         })
         const json=await response.json()
@@ -47,6 +52,7 @@ export default function Form() {
         <input type="text" name="time" id="time" onChange={(e)=>{setTime(e.target.value)}} value={time} className='form-input'/>
         </div>
       <Button colorScheme='blue' type='submit' m="4">Submit</Button>
+      {error && <div className="error">{error}</div>}
     </form>
   )
 }

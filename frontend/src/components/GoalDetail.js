@@ -1,12 +1,17 @@
 import React from 'react'
-import { Box, Button, Center, Checkbox, Flex, HStack, Text} from '@chakra-ui/react'
+import { Box, Button, Center, Checkbox, Flex, HStack, Text, useAccordionItem} from '@chakra-ui/react'
 import { useGoalcontext } from '../hooks/useGoalcontext'
-
+import { useAuthContext } from '../hooks/useAuthContext'
 export default function GoalDetail(props) {
   const {dispatch}=useGoalcontext()
+  const {user}=useAuthContext()
   const deleteHandler=async()=>{
+    if(!user){return}
     const data=await fetch("/api/goals/"+props.goal._id,{
-      method:'DELETE'
+      method:'DELETE',
+      headers:{
+        'Authorization':`Bearer ${user.token}`
+      }
     })
     
     const jsondata=await data.json()
