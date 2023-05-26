@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Box, Button, Center, Checkbox, Flex, HStack, Img, Text, useAccordionItem} from '@chakra-ui/react'
+import { Box, Button,  Flex, HStack, Img, Text} from '@chakra-ui/react'
 import { useGoalcontext } from '../hooks/useGoalcontext'
 import { useAuthContext } from '../hooks/useAuthContext'
 export default function GoalDetail(props) {

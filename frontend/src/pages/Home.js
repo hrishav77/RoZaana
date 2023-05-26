@@ -32,7 +32,7 @@ export default function Home() {
     fetchGoals()
    }
    
-  },[dispatch])
+  },[dispatch,user])
   
   return (
     <div className="goals">

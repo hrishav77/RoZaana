@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Container, Flex, HStack, Img, Text,useMediaQuery } from '@chakra-ui/react';
+import { Box, Button,  Flex, HStack, Img, Text,useMediaQuery } from '@chakra-ui/react';
 import {Link} from "react-router-dom"
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
