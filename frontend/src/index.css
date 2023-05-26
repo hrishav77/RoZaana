@@ -1,7 +1,7 @@
 body{
   background: #E7F6FC;
   background-image: url(https://c0.wallpaperflare.com/preview/763/245/149/background-coffee-compose-composition.jpg);
-  background-repeat:no-repeat;
+  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
