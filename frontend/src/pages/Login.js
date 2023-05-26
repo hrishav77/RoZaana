@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Heading, Input, Stack } from '@chakra-ui/react';
 
-const SignupForm = () => {
+const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -48,11 +48,11 @@ const SignupForm = () => {
             <FormLabel>Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
-          <Button type="submit" colorScheme="teal">Sign Up</Button>
+          <Button type="submit" colorScheme="teal">Log in</Button>
         </Stack>
       </form>
     </Box>
   );
 };
 
-export default SignupForm;
+export default LoginForm;

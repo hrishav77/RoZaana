@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Navbar from "./components/Navbar";
 import { ChakraProvider,extendTheme } from '@chakra-ui/react'
 import SignupForm from "./pages/Signup";
+import LoginForm from "./pages/Login"
 const theme = extendTheme({
   styles: {
     global: () => ({
@@ -23,6 +24,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/signup" element={<SignupForm/>}/>
+        <Route path="/login" element={<LoginForm/>}/>
+
       </Routes>
       </div>
       </BrowserRouter>

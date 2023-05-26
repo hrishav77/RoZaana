@@ -1,5 +1,5 @@
 body{
-  background: #faebd7;
+  background: #E7F6FC;
 }
 .form-item{
   padding: 5px;
@@ -8,7 +8,7 @@ body{
 .form{
   width: 80%;
   margin: 20px;
-  border: 2px #f7e3c9 solid;
+  border: 2px #A5CFE3 solid;
   background-color: #D7EDFA;
   border-radius: 10px;
   padding: 5px;

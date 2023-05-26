@@ -1,14 +1,27 @@
-import { Flex,HStack,Spacer,Text,Heading,Box } from '@chakra-ui/react'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Box, Button, Flex, Text } from '@chakra-ui/react';
+import {Link} from "react-router-dom"
 
-
-export default function Navbar() {
+const Navbar = () => {
   return (
-        <Flex background={'#E3B8CE'} >
-            
-            <Link to="/"><Heading size='xl'  p='5' ml="35%" color={'#60146D'} fontSize="4xl">DAILY GOALS</Heading></Link>
-        
-        </Flex>
-  )
-}
+    <Flex align="center" justify="space-between" p={4} bg="teal.500" color="white">
+      <Link to="/">
+      <Text fontSize="2xl" fontWeight="bold" >
+        Daily Goals
+      </Text>
+      </Link>
+      <Box>
+      <Link to="/login">
+        <Button colorScheme="teal" variant="outline" mr={2} color="teal.900">
+          Login
+        </Button>
+        </Link>
+        <Link to="/signup">
+        <Button colorScheme="teal"  variant="outline" mr={2} color="teal.900">Signup</Button>
+        </Link>
+      </Box>
+    </Flex>
+  );
+};
+
+export default Navbar;
