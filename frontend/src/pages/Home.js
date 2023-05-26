@@ -25,7 +25,7 @@ export default function Home() {
     <div className="goals">
       <div className="goal-detail">
         <div className="goal-box"> {goals && goals.map((goal)=>(
-        <GoalDetail goal={goal}/>
+        <GoalDetail goal={goal} key={goal._id}/>
       ))}</div>
      
       <div className="form-box"><Form/></div>

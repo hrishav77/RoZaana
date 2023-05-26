@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Heading, Input, Stack } from '@chakra-ui/react';
-
+import { useSignup } from '../hooks/useSignup';
 const SignupForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { signup, isLoading, error }=useSignup()//use signup returns theses states and also dispatch the login action
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,10 +17,8 @@ const SignupForm = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
  
-
-    // Reset the form
-    setEmail('');
-    setPassword('');
+    await signup(email,password)
+    
   };
 
   return (
@@ -47,7 +46,8 @@ const SignupForm = () => {
             <FormLabel>Password:</FormLabel>
             <Input type="password" value={password} onChange={handlePasswordChange} />
           </FormControl>
-          <Button type="submit" colorScheme="teal">Sign Up</Button>
+          <Button type="submit" colorScheme="teal" disabled={isLoading}>Sign Up</Button>
+          {error && <div className='error'>{error}</div>}
         </Stack>
       </form>
     </Box>
