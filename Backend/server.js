@@ -2,10 +2,11 @@ require('dotenv').config()
 const express=require('express')
 const app=express()
 const mongoose=require('mongoose')
-
+const cors=require("cors")
 const goalRoutes=require('./routes/goals')
 const userRoutes=require("./routes/user")
 
+app.use(cors());
 app.use(express.json())
 app.get("/",(req,res)=>{
 res.json({mssg:"welcome to the server"})
