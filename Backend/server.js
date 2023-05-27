@@ -8,7 +8,7 @@ const userRoutes=require("./routes/user")
 
 app.use(
     cors({
-        origin:"*"
+        origin:"*",
     }
 ));
 app.use(express.json())
