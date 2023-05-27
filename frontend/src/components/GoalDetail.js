@@ -2,6 +2,9 @@ import React, { useState,useEffect } from 'react'
 import { Box, Button,  Flex, HStack, Img, Text} from '@chakra-ui/react'
 import { useGoalcontext } from '../hooks/useGoalcontext'
 import { useAuthContext } from '../hooks/useAuthContext'
+const moment = require('moment')
+
+
 export default function GoalDetail(props) {
   const {dispatch}=useGoalcontext()
   const {user}=useAuthContext()
@@ -59,7 +62,6 @@ export default function GoalDetail(props) {
     }
   }
  //addition of duration to time
-const moment = require('moment')
 const timeString = props.goal.time;
 const time = moment(timeString, "h:mmA");
 const updatedTime = time.add(props.goal.duration, 'hours');
@@ -78,7 +80,7 @@ const updatedTimeString = updatedTime.format("h:mmA");
    
     
     <Text p="2" fontSize="lg"><b>Start:</b>{props.goal.time}</Text>
-    <Text p="2"><b>End:</b>{updatedTimeString}</Text>
+    <Text p="2" as="span"><b>End:</b>{updatedTimeString}</Text>
 
     <HStack><Text p="2"><b>Duration:</b>{props.goal.duration}h</Text> </HStack> 
       </div>  
