@@ -17,7 +17,7 @@ export default function Home() {
   ])
   useEffect(()=>{
     const fetchGoals=async()=>{
-    const data=await fetch('/api/goals',{
+    const data=await fetch('https://rozaana.onrender.com/api/goals',{
       headers:{
         'Authorization':`Bearer ${user.token}`
       }
