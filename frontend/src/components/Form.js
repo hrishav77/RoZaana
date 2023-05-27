@@ -18,7 +18,7 @@ export default function Form() {
       }
         e.preventDefault();
         const goaldata={goaltitle,duration,time};
-        const response=await fetch("/api/goals",{
+        const response=await fetch("https://rozaana.onrender.com/api/goals",{
             method:"post",
             body:JSON.stringify(goaldata),
             headers:{

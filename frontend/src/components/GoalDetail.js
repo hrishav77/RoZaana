@@ -49,7 +49,7 @@ export default function GoalDetail(props) {
   //delete
   const deleteHandler=async()=>{
     if(!user){return}
-    const data=await fetch("/api/goals/"+props.goal._id,{
+    const data=await fetch("https://rozaana.onrender.com/api/goals/"+props.goal._id,{
       method:'DELETE',
       headers:{
         'Authorization':`Bearer ${user.token}`
