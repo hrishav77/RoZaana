@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Button,  Flex, HStack, Img, Text,useMediaQuery } from '@chakra-ui/react';
+import { Box, Button,  Flex, HStack, Img, Text,useMediaQuery,useDisclosure } from '@chakra-ui/react';
 import {Link} from "react-router-dom"
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 import HambargurNav from "../components/HamburgNav"
+import HamburgLogin from "./HamburgLogin"
 import Form from './Form';
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@1&display=swap');
@@ -15,8 +16,10 @@ const Navbar = () => {
     "(max-width: 900px)",
     "(display-mode: browser)",
   ])
+  const { onClose } = useDisclosure()
   const LogoutHandler=()=>{
     logout()
+  
   }
   return (
     
@@ -48,14 +51,7 @@ const Navbar = () => {
         }
         
         {
-          isSmallScreen && !user && (<HambargurNav> <div><Link to="/login">
-          <Button colorScheme="whiteAlpha" variant="solid" mr={2} color="teal.900">
-            Login
-          </Button>
-          </Link>
-          <Link to="/signup">
-          <Button colorScheme="whiteAlpha"  variant="solid" mr={2} color="teal.900">Signup</Button>
-          </Link></div></HambargurNav>)
+          isSmallScreen && !user && (<HamburgLogin/>)
         }
         {
            !isSmallScreen && !user && (<div><Link to="/login">
