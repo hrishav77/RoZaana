@@ -48,14 +48,24 @@ const Navbar = () => {
         }
         
         {
-          !user && (<div><Link to="/login">
+          isSmallScreen && !user && (<HambargurNav> <div><Link to="/login">
           <Button colorScheme="whiteAlpha" variant="solid" mr={2} color="teal.900">
             Login
           </Button>
           </Link>
           <Link to="/signup">
           <Button colorScheme="whiteAlpha"  variant="solid" mr={2} color="teal.900">Signup</Button>
-          </Link></div>)
+          </Link></div></HambargurNav>)
+        }
+        {
+           !isSmallScreen && !user && (<div><Link to="/login">
+           <Button colorScheme="whiteAlpha" variant="solid" mr={2} color="teal.900">
+             Login
+           </Button>
+           </Link>
+           <Link to="/signup">
+           <Button colorScheme="whiteAlpha"  variant="solid" mr={2} color="teal.900">Signup</Button>
+           </Link></div>)
         }
   
       </Box>

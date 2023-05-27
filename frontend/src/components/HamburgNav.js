@@ -39,7 +39,7 @@ import {
             pt="10px">
             {children}
             <Center>
-            <Button colorScheme="blackAlpha" mr={3} onClick={onClose}>
+            <Button colorScheme="blackAlpha" mr={3} onClick={onClose} m="10">
               Close
             </Button>
             </Center>

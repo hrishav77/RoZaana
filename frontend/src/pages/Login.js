@@ -24,7 +24,8 @@ const LoginForm = () => {
 
   return (
     <Box
-      width="400px"
+      width={['80%', '400px']}
+      
       p={4}
       bg="gray.100"
       borderRadius="md"
@@ -34,6 +35,7 @@ const LoginForm = () => {
       margin="0 auto"
       mt={20}
       backgroundColor="rgba(255, 255, 255, 0.603)"
+      flex={{ base: '1', md: '0.5', lg: '0.3' }}
     >
       <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
         Login

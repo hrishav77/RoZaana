@@ -23,7 +23,7 @@ const SignupForm = () => {
 
   return (
     <Box
-    width="400px"
+    width={['80%', '400px']}
     p={4}
     bg="gray.100"
     borderRadius="md"
