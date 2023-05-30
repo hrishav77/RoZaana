@@ -46,8 +46,7 @@ export default function Home() {
      
       <div className="goal-detail">
         <div className="goal-box"> 
-        {isLoading && <Center><RingLoader
- color="black" cssOverride={{margin: '10px'}} speedMultiplier={0.8}/></Center>}
+        {isLoading && <Center><RingLoader color="#ffffff"  cssOverride={{margin: '10px'}} speedMultiplier={0.8}/></Center>}
         {goals && Object.keys(goals).length === 0 && <Text  fontSize="2xl" fontWeight="bold" color="white" textAlign="center" >Post your goals here!</Text>}
         {goals && goals.map((goal)=>(
         <GoalDetail goal={goal} key={goal._id}/>
