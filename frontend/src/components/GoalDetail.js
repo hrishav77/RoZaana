@@ -16,13 +16,15 @@ export default function GoalDetail(props) {
   //priority stars
   const [starCount, setStarCount] = useState(0);
   const handleButtonClick = () => {
-    const newStarCount = starCount + 1;
-    setStarCount(newStarCount);
-
+    if(starCount<5){
+      const newStarCount = starCount + 1;
+      setStarCount(newStarCount);
     const storedData = localStorage.getItem('starData');
     let starData = storedData ? JSON.parse(storedData) : {};
     starData[props.goal._id] = newStarCount;
     localStorage.setItem('starData', JSON.stringify(starData));
+    }
+    
   };
   const decButtonClick = () => {
     setStarCount(starCount - 1);

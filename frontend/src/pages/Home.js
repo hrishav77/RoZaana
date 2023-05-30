@@ -1,14 +1,18 @@
 // import React from 'react'
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useGoalcontext } from "../hooks/useGoalcontext";
 import { useMediaQuery } from "@chakra-ui/react";
 import GoalDetail from '../components/GoalDetail';
 import Form from "../components/Form";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { Center } from "@chakra-ui/react";
+import RingLoader
+ from "react-spinners/RingLoader";
+import { Text } from "@chakra-ui/react";
 
 export default function Home() {
   // const [goals,setGoals]=useState(null)
-
+  const [isLoading,SetLoading]=useState(false)
   const {goals,dispatch}=useGoalcontext()
   const {user}=useAuthContext()
   const [isSmallScreen, isDisplayingInBrowser] = useMediaQuery([
@@ -16,7 +20,9 @@ export default function Home() {
     "(display-mode: browser)",
   ])
   useEffect(()=>{
+    
     const fetchGoals=async()=>{
+    SetLoading(true)
     const data=await fetch('https://rozaana.onrender.com/api/goals',{
       headers:{
         'Authorization':`Bearer ${user.token}`
@@ -25,6 +31,7 @@ export default function Home() {
     const goaljson=await data.json()
     if(data.ok){
       // setGoals(goaljson)
+      SetLoading(false)
       dispatch({type:"SET_GOAL",payload:goaljson})
     }
    }
@@ -36,8 +43,13 @@ export default function Home() {
   
   return (
     <div className="goals">
+     
       <div className="goal-detail">
-        <div className="goal-box"> {goals && goals.map((goal)=>(
+        <div className="goal-box"> 
+        {isLoading && <Center><RingLoader
+ color="black" cssOverride={{margin: '10px'}} speedMultiplier={0.8}/></Center>}
+        {goals && Object.keys(goals).length === 0 && <Text  fontSize="2xl" fontWeight="bold" color="white" textAlign="center" >Post your goals here!</Text>}
+        {goals && goals.map((goal)=>(
         <GoalDetail goal={goal} key={goal._id}/>
       ))}</div>
       <div className="form-box">

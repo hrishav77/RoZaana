@@ -10,12 +10,14 @@ export default function Form() {
     const [duration,setDuration]=useState("");
     const [time,setTime]=useState("");
     const [error,setError]=useState(null)
+    const [Posting,setPosting]=useState(false)
   const {user}=useAuthContext()
     const handleSubmit=async(e)=>{
       if(!user){
         setError("you must be logged in")
         return
       }
+      setPosting(true)
         e.preventDefault();
         const goaldata={goaltitle,duration,time};
         const response=await fetch("https://rozaana.onrender.com/api/goals",{
@@ -29,6 +31,7 @@ export default function Form() {
         const json=await response.json()
         if(!response.ok){setError(json.error)}
         else if(response.ok){
+            setPosting(false)
             setError(null)
             setDuration("")
             setGoal("")
@@ -53,6 +56,7 @@ export default function Form() {
         placeholder='6:00PM' className='form-input'/>
         </div>
       <Button colorScheme="teal" type='submit' m="4">Submit</Button>
+      {Posting && "Posting..."}
       {error && <div className="error">{error}</div>}
     </form>
   )

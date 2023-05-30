@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Button, FormControl, FormLabel, Heading, Input, Stack } from '@chakra-ui/react';
+import { Box, Button, Center, FormControl, FormLabel, Heading, Input, Stack } from '@chakra-ui/react';
 import { useLogin } from '../hooks/useLogin';
+import BeatLoader from "react-spinners/BeatLoader";
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -55,6 +56,7 @@ const LoginForm = () => {
 
         </Stack>
       </form>
+      {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>}
     </Box>
   );
 };
