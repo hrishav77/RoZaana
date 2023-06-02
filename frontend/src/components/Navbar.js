@@ -28,7 +28,7 @@ const Navbar = () => {
      
       <Link to="/">
         <HStack>
-        <Img ml="10" h="50px" borderRadius="50%" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJE4HpH4GVE_zKJxDI8Jk2d6yWYDwSXUwE4g&usqp=CAU'/>
+        <Img ml="10" h="60px" borderRadius="50%" src='RoZaana.png'/>
       <Text fontSize="4xl" fontWeight="bold" as="span">
       RoZaana
       <Text fontSize="xs" fontFamily="'Tiro Devanagari Hindi', serif" >रोज आओ दिन बनाओ</Text>
