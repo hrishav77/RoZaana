@@ -12,6 +12,10 @@ export default function GoalDetail(props) {
   const [isSlashed, setIsSlashed] = useState(false)
   const finishHandler = () => {
     setIsSlashed(!isSlashed);
+    const finished = localStorage.getItem('slashdata');
+    let slashData=finished?JSON.parse(finished):{};
+    slashData[props.goal._id]=!isSlashed
+    localStorage.setItem('slashdata',JSON.stringify(slashData));
   };
   //priority stars
   const [starCount, setStarCount] = useState(0);
@@ -39,6 +43,15 @@ export default function GoalDetail(props) {
   };
   useEffect(() => {
     const storedData = localStorage.getItem('starData');
+    const finished = localStorage.getItem('slashdata');
+
+    if(finished){
+      const slashData=JSON.parse(finished)
+      if(slashData[props.goal._id]){
+        setIsSlashed(slashData[props.goal._id]);
+      }
+    }
+
     if (storedData) {
       const starData = JSON.parse(storedData);
       if (starData[props.goal._id]) {
@@ -56,7 +69,9 @@ export default function GoalDetail(props) {
       headers:{
         'Authorization':`Bearer ${user.token}`
       }
+    
     })
+    localStorage.removeItem('starData')
     
     const jsondata=await data.json()
     if(data.ok){
