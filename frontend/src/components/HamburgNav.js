@@ -25,7 +25,7 @@ import {
         </button>
         <Drawer
           isOpen={isOpen}
-          placement='right'
+          placement='top'
           onClose={onClose}
           finalFocusRef={btnRef}
         >
