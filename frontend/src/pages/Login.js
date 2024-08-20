@@ -1,11 +1,21 @@
-import React, { useState } from 'react';
-import { Box, Button, Center, FormControl, FormLabel, Heading, Input, Stack } from '@chakra-ui/react';
-import { useLogin } from '../hooks/useLogin';
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  Center,
+  FormControl,
+  FormLabel,
+  Heading,
+  Input,
+  Stack,
+} from "@chakra-ui/react";
+import { useLogin } from "../hooks/useLogin";
 import BeatLoader from "react-spinners/BeatLoader";
+
 const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const {login,error,isLoading}=useLogin()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error, isLoading } = useLogin();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -15,48 +25,89 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit =async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    await login(email,password)
-    // Reset the form
-    setEmail('');
-    setPassword('');
+    await login(email, password);
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <Box
-      width={['80%', '400px']}
-      
-      p={4}
-      bg="gray.100"
+      width={["80%", "400px"]}
+      p={6}
+      bg="#1A202C" // Dark grey background for a professional look
       borderRadius="md"
-      border="1px black solid"
-      // borderColor="gray.200"
-      boxShadow="md"
+      boxShadow="2xl"
       margin="0 auto"
       mt={20}
-      backgroundColor="rgba(255, 255, 255, 0.603)"
-      flex={{ base: '1', md: '0.5', lg: '0.3' }}
     >
-      <Heading as="h2" size="md" textAlign="center" mb={4} color="blackAlpha.800">
+      <Heading as="h2" size="lg" textAlign="center" mb={6} color="#EDF2F7">
         Login
       </Heading>
       <form onSubmit={handleSubmit}>
-        <Stack spacing={3}>
+        <Stack spacing={4}>
           <FormControl>
-            <FormLabel fontWeight="bold">Email:</FormLabel>
-            <Input type="email" value={email} onChange={handleEmailChange} />
+            <FormLabel color="#A0AEC0">Email:</FormLabel>
+            <Input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              bg="#2D3748" // Darker input background
+              _hover={{ bg: "#4A5568" }} // Slightly lighter on hover
+              placeholder="Enter your email"
+              color="#E2E8F0" // Light grey text for readability
+              border="none"
+              borderRadius="sm"
+              _focus={{
+                borderColor: "#63B3ED",
+                boxShadow: "0 0 0 1px #63B3ED",
+              }}
+            />
           </FormControl>
           <FormControl>
-            <FormLabel fontWeight="bold">Password:</FormLabel>
-            <Input type="password" value={password} onChange={handlePasswordChange} />
+            <FormLabel color="#A0AEC0">Password:</FormLabel>
+            <Input
+              type="password"
+              value={password}
+              onChange={handlePasswordChange}
+              bg="#2D3748"
+              _hover={{ bg: "#4A5568" }}
+              placeholder="Enter your password"
+              color="#E2E8F0"
+              border="none"
+              borderRadius="sm"
+              _focus={{
+                borderColor: "#63B3ED",
+                boxShadow: "0 0 0 1px #63B3ED",
+              }}
+            />
           </FormControl>
-          <Button type="submit" colorScheme="teal" disabled={isLoading}  fontSize="lg" fontWeight="bold">Log in</Button>
-          {error && <div className='error'>{error}</div>}
-
+          <Button
+            type="submit"
+            bg="#3182CE" // Blue button color for professionalism
+            color="white"
+            isLoading={isLoading}
+            fontSize="lg"
+            fontWeight="medium"
+            _hover={{ bg: "#2B6CB0" }} // Slightly darker blue on hover
+            borderRadius="sm"
+            boxShadow="sm"
+          >
+            Log in
+          </Button>
+          {error && (
+            <div className="error" style={{ color: "red" }}>
+              {error}
+            </div>
+          )}
         </Stack>
       </form>
-      {isLoading && <Center><BeatLoader color="#36d7b7" size={15} margin="5px" aria-label='loading'cssOverride={{margin: "5px",colour:"teal"}}/></Center>}
+      {isLoading && (
+        <Center mt={4}>
+          <BeatLoader color="#3182CE" size={15} aria-label="loading" />
+        </Center>
+      )}
     </Box>
   );
 };
